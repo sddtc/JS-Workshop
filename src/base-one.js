@@ -29,4 +29,4 @@ function add(number1, number2) {
 
 var r = add(10, 20);
 console.log(r);
-console.log(sum);
+// console.log(sum);
