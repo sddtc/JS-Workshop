@@ -76,6 +76,35 @@ console.log(
 );
 
 //
+function LegacyLetter(number) {
+    this.number = number;
+}
+
+LegacyLetter.prototype.getNumber = function() {
+    return this.number;
+}
+
+let legacyA = new LegacyLetter(1);
+let legacyB = new LegacyLetter(2);
+let legacyZ = new LegacyLetter(26);
+
+console.log(
+    legacyA.getNumber(),
+    legacyB.getNumber(),
+    legacyZ.getNumber(),
+)
+
+  //
+  function recursive(flag) {
+      if(flag === 2) {
+          return;
+      }
+      recursive(++flag);
+  }
+
+  recursive(0);
+
+  //
 function *gen() {
     yield 1;
     return 2;
@@ -87,4 +116,33 @@ function *gen() {
     g.next().value, // 1
     g.next().value, // 2
   );
-  
+
+  //
+  let x = 10;
+  let y = 20;
+  function foo(z) {
+      let x = 100;
+      return x + y + z;
+  }
+
+  console.log(foo(30));
+
+  //
+  var xEnvironment = 10;
+  let yEnvironment = 20;
+
+  console.log(
+      xEnvironment,
+      yEnvironment,
+  )
+
+  console.log(
+      this.xEnvironment,
+      this.yEnvironment,
+  )
+
+  this['not valid ID'] = 30;
+
+  console.log(
+      this['not valid ID'],
+  );
