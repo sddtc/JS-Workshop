@@ -146,3 +146,50 @@ function *gen() {
   console.log(
       this['not valid ID'],
   );
+
+  //
+  let xFunarg = 10;
+
+  function fooFunarg() {
+    console.log(xFunarg);
+  }
+
+  function bar(funArg) {
+      let xFunarg = 20;
+      funArg();//10
+  }
+
+  bar(fooFunarg);
+
+  //
+  function fooFoo() {
+      let x = 10;
+
+      function bar() {
+          return x;
+      }
+      
+      return bar;
+  }
+
+  let xFoo = 20;
+  let barFoo = fooFoo();
+
+  console.log(barFoo());
+
+  //
+  function createCounter() {
+      let count = 0;
+
+      return {
+          increment() {count++; return count;},
+          decrement() {count--; return count;},
+      };
+  }
+
+  let counter = createCounter();
+  console.log(
+      counter.increment(),
+      counter.decrement(),
+      counter.increment(),
+  );
